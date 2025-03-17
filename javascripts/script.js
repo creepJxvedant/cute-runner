@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
       n.forEach((e) => {
         for (let t = 0; t < 10; t++) {
           let n = new Image(),
-            r = `../player_sprites/${e}/${t}.png`;
+            r = `./cute-runner/player_sprites/${e}/${t}.png`;
           (n.src = r), l[e].push(n);
         }
       }),
