@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
         e.forEach((e) => {
           for (let t = 0; t < i[e].frames; t++) {
             let l = new Image();
-            (l.src = `../Enemies/skelton_explode/${e}/${t}.png`),
+            (l.src = `./cute-runner/Enemies/skelton_explode/${e}/${t}.png`),
               i[e].src.push(l);
           }
         });
@@ -68,7 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     for (let u = 0; u < e.length; u++) {
       let d = new Image(),
-        h = `../Background/Layer_${u}.png`;
+        h = `./cute-runner/Background/Layer_${u}.png`;
       (d.src = h), t.push(d);
     }
     t.reverse(),
