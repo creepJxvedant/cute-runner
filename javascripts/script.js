@@ -12,11 +12,11 @@ import {
   Hearts,
   Enemies,
 } from "./Data.js";
-import c from "../javascripts/Layer.js";
-import $ from "../javascripts/Player.js";
-import f from "../javascripts/Enemy.js";
-import u from "../javascripts/CollisionChecker.js";
-import d from "../javascripts/Plant.js";
+import c from "../cute-runner/javascripts/Layer.js";
+import $ from "./cute-runner/javascripts/Player.js";
+import f from "./cute-runner/javascripts/Enemy.js";
+import u from "./cute-runner/javascripts/CollisionChecker.js";
+import d from "./cute-runner/javascripts/Plant.js";
 export let totalPlant = 0;
 export let player = null;
 let PlayerSpeed = 0;
@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function w() {
     (g.font = "25px impact"),
       ((music = new Audio()).src =
-        "../cute-runner/music/suspence-background-25609.mp3"),
+        "./cute-runner/music/suspence-background-25609.mp3"),
       (music.volume = 1),
       window.addEventListener("keydown", (e) => {
         (player.isAlive && o.includes(e.key)) || o.push(e.key);

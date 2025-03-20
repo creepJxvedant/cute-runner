@@ -14,7 +14,7 @@ class Plant {
     this.damage = Math.round(1 + Math.random() * 10);
     this.range = 50;
     this.img = new Image();
-    this.img.src = "../Enemies/enemy_plant.png";
+    this.img.src = "./cute-runner/Enemies/enemy_plant.png";
     this.timer = 500;
     this.damageCooldown = 0;
     this.cooldownTime = 0.5;
