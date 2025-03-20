@@ -12,11 +12,11 @@ import {
   Hearts,
   Enemies,
 } from "./Data.js";
-import c from "../cute-runner/javascripts/Layer.js";
-import $ from "./cute-runner/javascripts/Player.js";
-import f from "./cute-runner/javascripts/Enemy.js";
-import u from "./cute-runner/javascripts/CollisionChecker.js";
-import d from "./cute-runner/javascripts/Plant.js";
+import c from "./Layer.js";
+import $ from "./Player.js";
+import f from "./Enemy.js";
+import u from "./CollisionChecker.js";
+import d from "./Plant.js";
 export let totalPlant = 0;
 export let player = null;
 let PlayerSpeed = 0;
