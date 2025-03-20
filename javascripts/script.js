@@ -39,8 +39,7 @@ window.addEventListener("DOMContentLoaded", () => {
     g = h.getContext("2d");
   function w() {
     (g.font = "25px impact"),
-      ((music = new Audio()).src =
-        "./cute-runner/music/suspence-background-25609.mp3"),
+      ((music = new Audio()).src = "./music/suspence-background-25609.mp3"),
       (music.volume = 1),
       window.addEventListener("keydown", (e) => {
         (player.isAlive && o.includes(e.key)) || o.push(e.key);
@@ -52,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
       n.forEach((e) => {
         for (let t = 0; t < 10; t++) {
           let n = new Image(),
-            r = `./cute-runner/player_sprites/${e}/${t}.png`;
+            r = `./player_sprites/${e}/${t}.png`;
           (n.src = r), l[e].push(n);
         }
       }),
@@ -60,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
         e.forEach((e) => {
           for (let t = 0; t < i[e].frames; t++) {
             let l = new Image();
-            (l.src = `./cute-runner/Enemies/skelton_explode/${e}/${t}.png`),
+            (l.src = `./Enemies/skelton_explode/${e}/${t}.png`),
               i[e].src.push(l);
           }
         });
@@ -68,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     for (let u = 0; u < e.length; u++) {
       let d = new Image(),
-        h = `./cute-runner/Background/Layer_${u}.png`;
+        h = `./Background/Layer_${u}.png`;
       (d.src = h), t.push(d);
     }
     t.reverse(),
