@@ -27,7 +27,7 @@ class Enemy {
       (this.damageDealt = !1),
       (this.range = 700 + 300 * Math.random()),
       (this.lastHit = 0),
-      (this.deadSound = new Audio("./cute-runner/music/enemyblast.mp3")),
+      (this.deadSound = new Audio("../music/enemyblast.mp3")),
       (this.duration = 1e3);
   }
 
