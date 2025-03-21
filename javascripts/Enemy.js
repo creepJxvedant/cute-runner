@@ -3,6 +3,9 @@ import { Enemies as i } from "./Data.js";
 import { player as s } from "./script.js";
 import { Hearts } from "./Data.js";
 import Heart from "./Heart.js";
+
+const sound = new Audio("../music/enemyblast.mp3");
+
 class Enemy {
   constructor(t, i, e) {
     (this.state = "chase_idle"),
@@ -27,7 +30,7 @@ class Enemy {
       (this.damageDealt = !1),
       (this.range = 700 + 300 * Math.random()),
       (this.lastHit = 0),
-      (this.deadSound = new Audio("./cute-runner/music/enemyblast.mp3")),
+      (this.deadSound = sound),
       (this.duration = 1e3);
   }
 
