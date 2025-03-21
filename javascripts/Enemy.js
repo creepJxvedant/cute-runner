@@ -4,7 +4,9 @@ import { player as s } from "./script.js";
 import { Hearts } from "./Data.js";
 import Heart from "./Heart.js";
 
-const sound = new Audio("../music/enemyblast.mp3");
+const sound = new Audio(
+  "https://creepjxvedant.github.io/cute-runner/music/enemy-blast.mp3"
+);
 
 class Enemy {
   constructor(t, i, e) {
