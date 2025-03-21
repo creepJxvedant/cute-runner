@@ -42,12 +42,20 @@ class Player {
       (this.gameOver = !1),
       (this.airResitance = 0),
       (this.isGliding = !1),
-      (this.damageTaken = new Audio("./music/sufferingDamage.mp3")),
+      (this.damageTaken = new Audio(
+        "https://creepjxvedant.github.io/cute-runner/music/sufferingDamage.mp3"
+      )),
       (this.damageTaken.volume = 0.4),
-      (this.deadSound = new Audio("./music/game-over.mp3")),
-      (this.jumpSound = new Audio("./music/jumped.mp3")),
+      (this.deadSound = new Audio(
+        "https://creepjxvedant.github.io/cute-runner/music/game-over.mp3"
+      )),
+      (this.jumpSound = new Audio(
+        "https://creepjxvedant.github.io/cute-runner/music/jumped.mp3"
+      )),
       (this.jumpSound.volume = 0.3),
-      (this.glidingAudio = new Audio("./music/gliding.mp3")),
+      (this.glidingAudio = new Audio(
+        "https://creepjxvedant.github.io/cute-runner/music/gliding.mp3"
+      )),
       (this.glidingAudio.volume = 1),
       (this.glidingAudio.loop = !0),
       (this.reverseAllowed = 200);
