@@ -55,6 +55,9 @@
     <script type="module" crossorigin="*" src="./javascripts/Data.js"></script>
     <script type="module" crossorigin="*" src="./javascripts/script.js"></script>
     <script>
+        if (!localStorage.getItem('times'))
+            localStorage.setItem('times', 5);
+
         const R = document.querySelector('#restart');
         R.addEventListener('click', () => {
             window.location.reload();
@@ -63,7 +66,10 @@
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loading');
             loadingScreen.style.display = 'none';
-            window.location.reload();
+            if (localStorage.getItem('times') > 0) {
+                localStorage.setItem('times', localStorage.getItem('times') - 1);
+                window.location.reload();
+            }
         });
     </script>
 </body>
