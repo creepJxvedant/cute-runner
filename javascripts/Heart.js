@@ -13,7 +13,7 @@ class Heart {
     this.counter = 0;
     this.range = 40;
     this.img = new Image();
-    this.img.src = "./HeartPickup.png";
+    this.img.src = "./javascripts/HeartPickup.png";
     this.availableTime = 1e3;
   }
 
