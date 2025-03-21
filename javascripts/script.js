@@ -17,111 +17,183 @@ import $ from "./Player.js";
 import f from "./Enemy.js";
 import u from "./CollisionChecker.js";
 import d from "./Plant.js";
+
 export let totalPlant = 0;
 export let player = null;
 let PlayerSpeed = 0;
 export const speed = 10;
 let MAX_ENEMIES = 20;
+
 export function updatePlayerSpeed(e) {
   PlayerSpeed = e;
 }
+
 export function getPlayerSpeed() {
   return PlayerSpeed;
 }
+
 export function totalPlantDecrement() {
   totalPlant--;
 }
-let music = null;
+
+let music = new Audio();
+music.src = "./music/suspence-background-25609.mp3";
+music.volume = 1;
+
+// Asset loading tracking
+let assetsToLoad = 0;
+let assetsLoaded = 0;
+
+function trackAssetLoad() {
+  assetsLoaded++;
+  if (assetsLoaded === assetsToLoad) {
+    startGame();
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
-  let h = document.querySelector(".canvas"),
-    y = (h.width = 0.98 * window.innerWidth),
-    m = (h.height = window.innerHeight),
-    g = h.getContext("2d");
-  function w() {
-    (g.font = "25px impact"),
-      ((music = new Audio()).src = "./music/suspence-background-25609.mp3"),
-      (music.volume = 1),
-      window.addEventListener("keydown", (e) => {
-        (player.isAlive && o.includes(e.key)) || o.push(e.key);
-      }),
-      window.addEventListener("keyup", (e) => {
-        let t = o.indexOf(e.key);
-        -1 != t && o.splice(t, 1);
-      }),
-      n.forEach((e) => {
-        for (let t = 0; t < 10; t++) {
-          let n = new Image(),
-            r = `./player_sprites/${e}/${t}.png`;
-          (n.src = r), l[e].push(n);
+  let canvas = document.querySelector(".canvas"),
+    canvasWidth = (canvas.width = 0.98 * window.innerWidth),
+    canvasHeight = (canvas.height = window.innerHeight),
+    ctx = canvas.getContext("2d");
+
+  function preloadAssets() {
+    assetsToLoad = 1; // Music counts as one asset
+
+    // Preload player sprites
+    n.forEach((action) => {
+      l[action] = [];
+      for (let t = 0; t < 10; t++) {
+        let img = new Image();
+        img.src = `./player_sprites/${action}/${t}.png`;
+        img.onload = trackAssetLoad;
+        assetsToLoad++;
+        l[action].push(img);
+      }
+    });
+
+    // Preload enemy explosion sprites
+    s.forEach((enemyList) => {
+      enemyList.forEach((enemy) => {
+        i[enemy].src = [];
+        for (let t = 0; t < i[enemy].frames; t++) {
+          let img = new Image();
+          img.src = `./Enemies/skelton_explode/${enemy}/${t}.png`;
+          img.onload = trackAssetLoad;
+          assetsToLoad++;
+          i[enemy].src.push(img);
         }
-      }),
-      s.forEach((e) => {
-        e.forEach((e) => {
-          for (let t = 0; t < i[e].frames; t++) {
-            let l = new Image();
-            (l.src = `./Enemies/skelton_explode/${e}/${t}.png`),
-              i[e].src.push(l);
-          }
-        });
       });
+    });
 
+    // Preload background layers
     for (let u = 0; u < e.length; u++) {
-      let d = new Image(),
-        h = `./Background/Layer_${u}.png`;
-      (d.src = h), t.push(d);
+      let img = new Image();
+      img.src = `./Background/Layer_${u}.png`;
+      img.onload = trackAssetLoad;
+      assetsToLoad++;
+      t.push(img);
     }
-    t.reverse(),
-      t.forEach((e) => {
-        r.push(new c(e, g));
-      });
-  }
-  function E() {
-    if (a.length < MAX_ENEMIES) {
-      let e = new f(g, i, 80);
-      a.push(e);
-    }
-    if (totalPlant < 3) {
-      let t = new d(g);
-      a.push(t), totalPlant++;
-    }
-  }
-  let _ = new u(),
-    x = new $(g, m, PlayerSpeed);
-  player = x;
-  let P = setInterval(E, 1e3, []);
 
-  function S() {
-    player.isAlive && music.play(),
-      g.clearRect(0, 0, y, m),
-      r.forEach((e) => {
-        player.isAlive && e.update(), e.draw();
-      }),
-      Hearts.forEach((heart) => {
-        heart.update();
-        heart.draw();
-      }),
-      0 === a.length && E(),
-      a.forEach((e) => {
-        e.update(), e.draw();
-      }),
-      player.isAlive ? (k(), v(), _.update(g)) : clearInterval(P);
-    x.update(), x.draw(), requestAnimationFrame(S);
+    t.reverse();
+    t.forEach((bg) => {
+      r.push(new c(bg, ctx));
+    });
+
+    // Preload music
+    music.oncanplaythrough = trackAssetLoad;
   }
-  function k() {
-    (g.fillStyle = "#f04"),
-      g.fillText(`EnemyCount : ${a.length}`, window.innerWidth - 198, 102, 100),
-      (g.fillStyle = "black"),
-      g.fillText(`EnemyCount : ${a.length}`, window.innerWidth - 200, 100, 100);
-  }
-  function v() {
-    (g.fillStyle = "#f04"),
-      g.fillText(`score : ${x.score}`, 60, 100, 100),
-      (g.fillStyle = "#000"),
-      g.fillText(`score : ${x.score}`, 58, 98, 100);
+
+  function startGame() {
+    let collisionChecker = new u();
+    let playerInstance = new $(ctx, canvasHeight, PlayerSpeed);
+    player = playerInstance;
+
+    function spawnEntities() {
+      if (a.length < MAX_ENEMIES) {
+        let enemy = new f(ctx, i, 80);
+        a.push(enemy);
+      }
+      if (totalPlant < 3) {
+        let plant = new d(ctx);
+        a.push(plant);
+        totalPlant++;
+      }
+    }
+
+    let enemySpawner = setInterval(spawnEntities, 1000);
+
+    function gameLoop() {
+      if (player.isAlive) {
+        music.play();
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        // Update backgrounds
+        r.forEach((layer) => {
+          player.isAlive && layer.update();
+          layer.draw();
+        });
+
+        // Update and draw hearts
+        Hearts.forEach((heart) => {
+          heart.update();
+          heart.draw();
+        });
+
+        // Ensure at least one enemy is present
+        if (a.length === 0) spawnEntities();
+
+        // Update and draw enemies and plants
+        a.forEach((entity) => {
+          entity.update();
+          entity.draw();
+        });
+
+        // Update collision checker
+        if (player.isAlive) {
+          drawEnemyCount();
+          drawScore();
+          collisionChecker.update(ctx);
+        } else {
+          clearInterval(enemySpawner);
+        }
+
+        // Update and draw player
+        player.update();
+        player.draw();
+
+        requestAnimationFrame(gameLoop);
+      }
+    }
+
+    function drawEnemyCount() {
+      ctx.fillStyle = "#f04";
+      ctx.fillText(
+        `EnemyCount : ${a.length}`,
+        window.innerWidth - 198,
+        102,
+        100
+      );
+      ctx.fillStyle = "black";
+      ctx.fillText(
+        `EnemyCount : ${a.length}`,
+        window.innerWidth - 200,
+        100,
+        100
+      );
+    }
+
+    function drawScore() {
+      ctx.fillStyle = "#f04";
+      ctx.fillText(`score : ${player.score}`, 60, 100, 100);
+      ctx.fillStyle = "#000";
+      ctx.fillText(`score : ${player.score}`, 58, 98, 100);
+    }
+
+    gameLoop();
   }
 
   window.addEventListener("load", () => {
-    w();
-    S();
+    preloadAssets();
   });
 });
