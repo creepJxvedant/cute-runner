@@ -8,7 +8,7 @@ import e from "./Kunai.js";
 import { updatePlayerSpeed as r } from "./script.js";
 
 const gameOverImg = new Image();
-gameOverImg.src = "../Background/game-over.png";
+gameOverImg.src = "./Background/game-over.png";
 
 class Player {
   constructor(i, t) {
@@ -38,16 +38,16 @@ class Player {
       (this.score = 0),
       (this.facingDirection = 1),
       (this.img = new Image()),
-      (this.img.src = "../javascripts/Idle__000.png"),
+      (this.img.src = "./javascripts/Idle__000.png"),
       (this.gameOver = !1),
       (this.airResitance = 0),
       (this.isGliding = !1),
-      (this.damageTaken = new Audio("../music/sufferingDamage.mp3")),
+      (this.damageTaken = new Audio("./music/sufferingDamage.mp3")),
       (this.damageTaken.volume = 0.4),
-      (this.deadSound = new Audio("../music/game-over.mp3")),
-      (this.jumpSound = new Audio("../music/jumped.mp3")),
+      (this.deadSound = new Audio("./music/game-over.mp3")),
+      (this.jumpSound = new Audio("./music/jumped.mp3")),
       (this.jumpSound.volume = 0.3),
-      (this.glidingAudio = new Audio("../music/gliding.mp3")),
+      (this.glidingAudio = new Audio("./music/gliding.mp3")),
       (this.glidingAudio.volume = 1),
       (this.glidingAudio.loop = !0),
       (this.reverseAllowed = 200);

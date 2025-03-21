@@ -1,5 +1,5 @@
 let image = new Image();
-image.src = ".javascripts/Kunai.png";
+image.src = "./javascripts/Kunai.png";
 import { Kunais as i } from "./Data.js";
 import { getPlayerSpeed as t, player as s } from "./script.js";
 class Kunai {
