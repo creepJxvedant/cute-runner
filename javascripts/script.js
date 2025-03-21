@@ -70,7 +70,9 @@ function startGame() {
 
   function gameLoop() {
     if (player.isAlive) {
-      music.play();
+      // Start music once when the game is ready
+      if (music.paused) music.play();
+
       ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
       // Update backgrounds
@@ -184,4 +186,11 @@ function preloadAssets() {
 
 window.addEventListener("load", () => {
   preloadAssets();
+
+  // Handle window resizing
+  window.addEventListener("resize", () => {
+    let canvas = document.querySelector(".canvas");
+    canvas.width = 0.98 * window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
 });
