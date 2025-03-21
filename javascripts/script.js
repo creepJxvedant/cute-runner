@@ -11,6 +11,7 @@ import {
   Enemybee as p,
   Hearts,
   Enemies,
+  keysArray,
 } from "./Data.js";
 import c from "./Layer.js";
 import $ from "./Player.js";
@@ -139,6 +140,18 @@ function trackAssetLoad() {
 
 function preloadAssets() {
   assetsToLoad = 1; // Music counts as one asset
+
+  window.addEventListener("keydown", (e) => {
+    if (!keysArray.includes(e.key)) {
+      keysArray.push(e.key);
+    }
+  });
+
+  window.addEventListener("keyup", (e) => {
+    if (keysArray.includes(e.key)) {
+      keysArray.splice(keysArray.indexOf(e.key), 1);
+    }
+  });
 
   // Preload player sprites
   n.forEach((action) => {
