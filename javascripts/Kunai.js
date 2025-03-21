@@ -14,9 +14,9 @@ class Kunai {
       (this.damage = 40),
       (this.decrementRate = 1),
       (this.counter = 0),
-      (this.kunaiAudio = new Audio("../music/taking-out-knife.mp3")),
+      (this.kunaiAudio = new Audio("./music/taking-out-knife.mp3")),
       (this.kunaiAudio.volume = 0.6),
-      (this.damageDealt = new Audio("../music/kunaiDamage.mp3")),
+      (this.damageDealt = new Audio("./music/kunaiDamage.mp3")),
       (this.damageDealt.volume = 0.1),
       this.kunaiAudio.play(),
       (this.dir = s.facingDirection);
