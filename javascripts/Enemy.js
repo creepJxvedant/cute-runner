@@ -5,7 +5,7 @@ import { Hearts } from "./Data.js";
 import Heart from "./Heart.js";
 
 const sound = new Audio(
-  "https://creepjxvedant.github.io/cute-runner/music/enemy-blast.mp3"
+  "https://creepjxvedant.github.io/cute-runner/music/enemyblast.mp3"
 );
 
 class Enemy {
