@@ -116,16 +116,16 @@ function startGame() {
 
   function drawEnemyCount() {
     ctx.fillStyle = "#f04";
-    ctx.fillText(`EnemyCount : ${a.length}`, window.innerWidth - 198, 102, 100);
+    ctx.fillText(`EnemyCount : ${a.length}`, window.innerWidth - 198, 102, 200);
     ctx.fillStyle = "black";
-    ctx.fillText(`EnemyCount : ${a.length}`, window.innerWidth - 200, 100, 100);
+    ctx.fillText(`EnemyCount : ${a.length}`, window.innerWidth - 200, 100, 200);
   }
 
   function drawScore() {
     ctx.fillStyle = "#f04";
-    ctx.fillText(`score : ${player.score}`, 60, 100, 100);
+    ctx.fillText(`score : ${player.score}`, 60, 100, 200);
     ctx.fillStyle = "#000";
-    ctx.fillText(`score : ${player.score}`, 58, 98, 100);
+    ctx.fillText(`score : ${player.score}`, 58, 98, 200);
   }
 
   gameLoop();
