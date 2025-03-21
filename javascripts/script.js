@@ -39,8 +39,7 @@ window.addEventListener("DOMContentLoaded", () => {
     g = h.getContext("2d");
   function w() {
     (g.font = "25px impact"),
-      ((music = new Audio()).src =
-        "./cute-runner/music/suspence-background-25609.mp3"),
+      ((music = new Audio()).src = "./music/suspence-background-25609.mp3"),
       (music.volume = 1),
       window.addEventListener("keydown", (e) => {
         (player.isAlive && o.includes(e.key)) || o.push(e.key);
