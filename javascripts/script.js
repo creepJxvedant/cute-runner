@@ -70,6 +70,8 @@ function startGame() {
   let enemySpawner = setInterval(spawnEntities, 1000);
 
   function gameLoop() {
+    console.lof(keysArray);
+
     if (player.isAlive) {
       // Start music once when the game is ready
       if (music.paused) music.play();
