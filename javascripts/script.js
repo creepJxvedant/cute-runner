@@ -24,6 +24,7 @@ export let player = null;
 let PlayerSpeed = 0;
 export const speed = 10;
 let MAX_ENEMIES = 20;
+const enemyblast=new Audio('https://github.com/creepJxvedant/cute-runner/music/enemyblast.mp3');
 
 export function updatePlayerSpeed(e) {
   PlayerSpeed = e;
@@ -51,7 +52,7 @@ function startGame() {
     canvasHeight = (canvas.height = window.innerHeight),
     ctx = canvas.getContext("2d");
 
-  ctx.font = "24px Arial";
+  ctx.font = "22px Arial";
 
   let collisionChecker = new u();
   let playerInstance = new $(ctx, canvasHeight, PlayerSpeed);
@@ -59,7 +60,7 @@ function startGame() {
 
   function spawnEntities() {
     if (a.length < MAX_ENEMIES) {
-      let enemy = new f(ctx, i, 80);
+      let enemy = new f(ctx, i, 80,enemyblast);
       a.push(enemy);
     }
     if (totalPlant < 3) {
