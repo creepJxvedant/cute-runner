@@ -3,7 +3,7 @@ image.src = "./javascripts/Kunai.png";
 import { Kunais as i } from "./Data.js";
 import { getPlayerSpeed as t, player as s } from "./script.js";
 class Kunai {
-  constructor(i, t, e) {
+  constructor(i, t, e,knifeOut,knifeDamage) {
     (this.x = t),
       (this.y = e),
       (this.ctx = i),
@@ -14,9 +14,9 @@ class Kunai {
       (this.damage = 40),
       (this.decrementRate = 1),
       (this.counter = 0),
-      (this.kunaiAudio = new Audio(`https://github.com/creepJxvedant/cute-runner/music/taking-out-knife.mp3`)),
+      (this.kunaiAudio = knifeOut,
       (this.kunaiAudio.volume = 0.6),
-      (this.damageDealt = new Audio(`https://github.com/creepJxvedant/cute-runner/music/kunaiDamage.mp3`)),
+      (this.damageDealt = knifeDamage,
       (this.damageDealt.volume = 0.1),
       this.kunaiAudio.play(),
       (this.dir = s.facingDirection);
