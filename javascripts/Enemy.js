@@ -4,12 +4,8 @@ import { player as s } from "./script.js";
 import { Hearts } from "./Data.js";
 import Heart from "./Heart.js";
 
-const sound = new Audio(
-  "https://creepjxvedant.github.io/cute-runner/music/enemyblast.mp3"
-);
-
 class Enemy {
-  constructor(t, i, e) {
+  constructor(t, i, e,s) {
     (this.state = "chase_idle"),
       (this.willheartDrop =
         Hearts.length < 3 && Math.round(Math.random() * 5) == 1);
@@ -32,7 +28,7 @@ class Enemy {
       (this.damageDealt = !1),
       (this.range = 700 + 300 * Math.random()),
       (this.lastHit = 0),
-      (this.deadSound = sound),
+      (this.deadSound = s),
       (this.duration = 1e3);
   }
 
