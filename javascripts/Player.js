@@ -11,8 +11,8 @@ const gameOverImg = new Image();
 gameOverImg.src = "./Background/game-over.png";
 
 
-const knifeOut=new Audio('https://github.com/creepJxvedant/cute-runner/music/taking-out-knife.mp3');
-const knifeDamage=new Audio('https://github.com/creepJxvedant/cute-runner/music/kunai-Damage.mp3');
+const knifeOut=new Audio('https://creepjxvedant.github.io/cute-runner/music/taking-out-knife.mp3');
+const knifeDamage=new Audio('https://creepjxvedant.github.io/cute-runner/music/music/kunai-Damage.mp3');
 
 class Player {
   constructor(i, t) {
