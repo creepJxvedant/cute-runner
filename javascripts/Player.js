@@ -71,7 +71,7 @@ class Player {
       this.jumpSound.play());
   }
   createKunai() {
-    let i = new e(this.ctx, this.x, this.y, this.BackGroundSpeed,knifeOut,knifeDamage);
+    let i = new e(this.ctx, this.x, this.y,knifeOut,knifeDamage);
     i.kunaiAudio.play(), h.push(i);
   }
   throw() {
