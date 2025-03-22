@@ -51,6 +51,8 @@ function startGame() {
     canvasHeight = (canvas.height = window.innerHeight),
     ctx = canvas.getContext("2d");
 
+  ctx.font = "24px Arial";
+
   let collisionChecker = new u();
   let playerInstance = new $(ctx, canvasHeight, PlayerSpeed);
   player = playerInstance;
