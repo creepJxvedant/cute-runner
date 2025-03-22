@@ -23,7 +23,7 @@ export let player = null;
 let PlayerSpeed = 0;
 export const speed = 10;
 let MAX_ENEMIES = 20;
-const enemyblast = new Audio("https://github.com/creepJxvedant/cute-runner/music/enemyblast.mp3");
+const enemyblast = new Audio("https://creepjxvedant.github.io/cute-runner/music/enemyblast.mp3");
 
 export function updatePlayerSpeed(e) {
   PlayerSpeed = e;
