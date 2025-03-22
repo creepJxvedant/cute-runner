@@ -2,6 +2,7 @@ let image = new Image();
 image.src = "./javascripts/Kunai.png";
 import { Kunais as i } from "./Data.js";
 import { getPlayerSpeed as t, player as s } from "./script.js";
+import {URI} from './URI.js';
 class Kunai {
   constructor(i, t, e) {
     (this.x = t),
@@ -14,11 +15,9 @@ class Kunai {
       (this.damage = 40),
       (this.decrementRate = 1),
       (this.counter = 0),
-      (this.kunaiAudio = new Audio("")),
+      (this.kunaiAudio = new Audio(`${URI}/music/taking-out-knife.mp3`)),
       (this.kunaiAudio.volume = 0.6),
-      (this.damageDealt = new Audio(
-        "https://creepjxvedant.github.io/cute-runner/music/kunaiDamage.mp3"
-      )),
+      (this.damageDealt = new Audio(`${URI}/music/kunaiDamage.mp3`)),
       (this.damageDealt.volume = 0.1),
       this.kunaiAudio.play(),
       (this.dir = s.facingDirection);
