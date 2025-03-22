@@ -18,8 +18,8 @@ class Kunai {
       (this.kunaiAudio.volume = 0.6),
       (this.damageDealt = knifeDamage,
       (this.damageDealt.volume = 0.1),
-      this.kunaiAudio.play(),
-      (this.dir = s.facingDirection);
+      (this.kunaiAudio.play()),
+      (this.dir = s.facingDirection)
   }
   update() {
     if (
