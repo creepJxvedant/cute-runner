@@ -10,6 +10,10 @@ import { updatePlayerSpeed as r } from "./script.js";
 const gameOverImg = new Image();
 gameOverImg.src = "./Background/game-over.png";
 
+
+const knifeOut=new Audio('https://github.com/creepJxvedant/cute-runner/music/taking-out-knife.mp3');
+const knifeDamage=new Audio('https://github.com/creepJxvedant/cute-runner/music/kunai-Damage.mp3');
+
 class Player {
   constructor(i, t) {
     (this.width = 290),
@@ -67,7 +71,7 @@ class Player {
       this.jumpSound.play());
   }
   createKunai() {
-    let i = new e(this.ctx, this.x, this.y, this.BackGroundSpeed);
+    let i = new e(this.ctx, this.x, this.y, this.BackGroundSpeed,knifeOut,knifeDamage);
     i.kunaiAudio.play(), h.push(i);
   }
   throw() {
